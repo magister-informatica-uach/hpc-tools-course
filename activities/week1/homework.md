@@ -18,12 +18,12 @@ Clone este repositorio en su computador o al menos el contenido de la carpeta `a
 
 ### BASH
 
-Escriba un script de BASH que realice la siguiente secuencia de operaciones
+Escriba un script de BASH que reciba un argumento y que realice la siguiente secuencia de operaciones:
 
 - Crear una variable de entorno llamada CARPETA cuyo contenido sea su nombre
 - Contar e imprimir la cantidad de archivos de la carpeta `data`
 - Crear un subdirectorio en `data` llamado usando como nombre el contenido de la variable de entorno
-- Crear un archivo en el subdirectorio llamado `new_data` con su nombre y apellido.
+- Crear un archivo en el subdirectorio llamado `new_data` cuyo contenido sea el argumento del script.
 - Copiar el archivo recién creado al directorio `data`
 - Imprimir recursivamente los nombres y los contenidos de todos los archivos en `data`
 - Eliminar el archivo `data/new_data`
