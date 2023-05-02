@@ -29,9 +29,11 @@ Más cualquier otra que considere relevante.
 
 ### Perfilado de rutina en Python
 
-Utilizaremos como ejemplo la rutina `fractal.py` que se encuentra en este directorio. Antes de ejecutar el script se recomenda instalar montar un ambiente de conda con
+Utilizaremos como ejemplo la rutina `fractal.py` que se encuentra en este directorio. Referencia: https://en.wikipedia.org/wiki/Julia_set
 
-    conda create -n info335 -c conda-forge python=3.9 matplotlib ipympl numpy scipy  cython
+Antes de ejecutar el script se recomenda instalar montar un ambiente de conda con
+
+    conda create -n info335 -c conda-forge python=3.9 pip matplotlib ipympl numpy scipy cython gprof2dot graphviz
 
 Luego activar con:
 
@@ -65,9 +67,25 @@ Podemos hacer perfilado desde un script de Python con:
     import cProfile
     with cProfile.Profile() as pr:
         # Correr nuestra rutina aquí
-        pr.print_stats()
+        pr.dump_stats("output.pstats") # o también pr.print_stats()
 
-Modifique `fractal.py` para hacer un perfilado de `make_fractal` con sus valores por defecto, luego **imprima en su reporte** los 10 primeros métodos de la lista, ordenandos según tiempo acumulado. 
+Modifique `fractal.py` para hacer un perfilado de `make_fractal` con sus valores por defecto ordenando por tiempo acumulado. Luego genere y visualize una gráfica del su perfilado con:
+
+    gprof2dot --colour-nodes-by-selftime -f pstats output.pstats | dot -Tpng -o output.png
+
+Repita para la función `evaluate_z`. Documentación de `gprof2dot`: https://github.com/jrfonseca/gprof2dot
+
+Trazado (*tracing*) de un programa con herramientas externas: https://functiontrace.com/. Instalación:
+
+- Con su ambiente activado, instalar cliente con: `pip install functiontrace`
+- Instalar `rustup` en su sistema operativo (por ejemplo `sudo apt install rustup`)
+- Instalar el servidor con: `cargo install functiontrace-server`
+- Agregar `.cargo/bin` a su variable `PATH`
+
+Modifique `fractal.py` tal que  `main` sólo haga un llamado a `make_fractal(N)`. Luego:
+
+- Ejecutar con `functiontrace fractal.py 500`
+- Utilizar la UI de firefox para visualizar su trasa: https://profiler.firefox.com/ con la opción "cargar un perfil desde un archivo"
 
 También es posible perfilar línea a línea en lugar de método a método. Para realizar perfilado por línea en Python se puede utilizar la librería: [`line_profiler`](https://github.com/pyutils/line_profiler)
 
@@ -75,5 +93,7 @@ Instale la librería en su ambiente y haga un perfilado de las funciones `make_f
 
 
 ### Perfilado de rutina en C
+
+Próxima semana
 
 
