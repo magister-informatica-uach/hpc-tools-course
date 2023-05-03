@@ -1,3 +1,5 @@
 *.json.gz
 *.pstats
 *.png
+*.prof
+*.lprof
