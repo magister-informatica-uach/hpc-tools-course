@@ -37,3 +37,9 @@ Escriba una versión vectorizada de la rutina que genera el fractal de Julia uti
 - Obtenga una gráfica de speed-up entre su nueva solución y la solución original. 
 - Envíe su rutina vectorizada y el gráfico de speed-up por discord.
 - Proyecte con los datos de tiempo de su nueva solución, con que valor de N se calcula un fractal durante 30 minutos. Luego genere dicho fractal y comparta su imagen en el canal de discord del curso.
+
+
+## Otras referencias
+
+- https://pythonspeed.com/articles/vectorization-python/
+- https://lhoupert.fr/test-jbook/04-code-vectorization.html
