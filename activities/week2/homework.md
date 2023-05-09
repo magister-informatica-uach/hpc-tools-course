@@ -136,6 +136,7 @@ Lo cual permite ver las llamadas de ASM de nuestra rutina. A partir de Python 3.
 
     python -X perf script.py 
 
-y luego usar `perf report` como se mostró antes. Para más información se sugiere revisar: https://www.petermcconnell.com/posts/perf_eng_with_py12/
+y luego usar `perf report` como se mostró antes. Para más información se sugiere revisar: https://docs.python.org/3.12/howto/perf_profiling.html
+
 
 
