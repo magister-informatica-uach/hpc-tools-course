@@ -96,8 +96,46 @@ También es posible perfilar línea a línea en lugar de método a método. Para
 - Obtenga la tabla de tiempos por línea con `python -m line_profiler ...`
 
 
-### Perfilado de rutina en C
+### Perfilado de rutina en Linux
 
-Próxima semana
+Linux ofrece varias herramientas con muchas funcionalidades interesantes para hacer perfilado. Veremos algunos ejemplos de uso para perfilar código escrito en C y en Python. 
+
+Primero explore la rutina `example.c`, luego compile con 
+
+    gcc -pg -o example example.c 
+
+y ejecute con:
+
+    ./example
+
+Para medir el tiempo completo de una rutina desde su emulador de terminal
+
+    time ./example
+
+Lo cual retornará el tiempo de ejecución dividido en `real`, `sys` y `usr`. El primero corresponde al tiempo de reloj. El segundo y tercero son tiempo de CPU gastado en llamadas dentro y fuera del kernel, respectivamente. Para más detalles puede consultar `man time`.
+
+Para hacer un perfilado del programa, ejecútelo al menos una vez como `./example` para generar `gmon.out` y luego ejecute:
+
+    gprof ./example
+
+Para generar un reporte. La herramienta `gprof` pertenece al paquete `binutils` de su distribución de Linux. La parte inicial llamada `flat profile` muestra el tiempo gastado en cada función y cuantas veces fue llamada. La segunda parte llamada `call graph` muestra, por cada función, las funciones que llamo y las funciones que la llamaron y también cuantas veces.  
+
+Para aun más detalles podemos utilizar `perf` (también parte de `binutils`). Esta herramienta además de medir tiempos y llamados, también mide la cantidad de eventos de bajo nivel listados en `perf list`. Por ejemplo:
+
+    perf stat ./example 
+
+Entrega estadísticas de CPU durante la ejecución de su programa. Más en general generaremos un reporte con:
+
+    perf record -g ./example
+
+que genera un archivo `perf.data`. Luego este se puede explorar con:
+
+    perf report 
+
+Lo cual permite ver las llamadas de ASM de nuestra rutina. A partir de Python 3.12 podemos usar perf para hacer profiling que entienda los símbolos dentro del script de python (funciones). Esto se hace con:
+
+    python -X perf script.py 
+
+y luego usar `perf report` como se mostró antes. Para más información se sugiere revisar: https://www.petermcconnell.com/posts/perf_eng_with_py12/
 
 
