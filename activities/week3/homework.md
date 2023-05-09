@@ -12,6 +12,21 @@ Revisar el siguiente material junto al profesor:
 
 - https://phuijse.github.io/PythonBook/contents/hpc/opti1.html
 
+Instale la librería NumPy en su ambiente de conda con:
+
+    conda install numpy
+
+Luego activate su ambiente, ejecute el interprete de python y escriba
+
+    import numpy as np 
+    np.__version__
+    np.show_config()
+
+Para comprobar su versión y las librerías de bajo nivel contra las que está compilada su instalación de NumPy.
+
+- [¿Qué es BLAS y LAPACK?](https://superfastpython.com/what-is-blas-and-lapack-in-numpy/)
+- Configurando la [cantidad de núcleos en NumPy](https://superfastpython.com/numpy-number-blas-threads/)
+- Es posible [cambiar el backend de bajo nivel](https://conda-forge.org/docs/maintainer/knowledge_base.html#switching-blas-implementation)
 
 ## Actividad: Vectorizar el fractal de Julia
 
