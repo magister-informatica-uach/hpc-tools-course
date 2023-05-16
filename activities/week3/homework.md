@@ -2,9 +2,9 @@
 
 ## Resultados de aprendizaje
 
-    - Comprender las limitaciones del lenguaje Python 
-    - Aprender buenas prácticas de programación para acelerar rutinas en Python
-    - Vectorizar rutinas matemáticas con la librería NumPy
+- Comprender las limitaciones del lenguaje Python 
+- Aprender buenas prácticas de programación para acelerar rutinas en Python
+- Vectorizar rutinas matemáticas con la librería NumPy
 
 ## Conceptos básicos
 
