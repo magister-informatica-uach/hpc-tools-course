@@ -5,7 +5,7 @@
 El estudiante es capaz de:
 - Explicar que es y para qué sirve C-Extensions for Python (cython) 
 - Escribir y compilar rutinas en cython que procesan ndarrays de NumPy
-- Utilizar funciones de lenguaje C desde Python
+- Acceder a funciones de lenguaje C desde Python
 
 ## Antes de la actividad
 
@@ -15,7 +15,12 @@ Revisar el siguiente material junto al profesor:
 
 y los ejemplos de este carpeta.
 
-Instale en su ambiente la librería cython y los compiladores de C. Luego active su ambiente.
+
+Instale en su ambiente la librería cython y los compiladores de C o cree un ambiente nuevo:
+
+    conda create -n cython2 python=3.9 numpy gcc_linux-64 cython
+
+Luego active su ambiente.
 
 Puede transpilar de cython a c con:
 
@@ -25,7 +30,7 @@ Opcionalmente puede usar el flag `-a` para generar un reporte html con la cantid
 
 Luego compile el código generado con:
 
-    gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -o my_lib.so mi_codigo.c -I $CONDA_PREFIX/include/python3.9/
+    $CONDA_PREFIX/bin/x86_64-conda-linux-gnu-gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -o my_lib.so mi_codigo.c -I $CONDA_PREFIX/include/python3.9/
 
 
 Lo anterior crea una librería dinámica que puede llamarse desde Python como:
