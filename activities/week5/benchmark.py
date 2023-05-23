@@ -14,18 +14,18 @@ def distancia_pares_jnp(data):
 
 
 if __name__ == "__main__":
-    assert len(sys.argv) == 3, "Llamar como python benchmark.py N prec dev, donde N es un entero, prec es 32 (float) o 64 (double) y dev es cpu o gpu"
+    assert len(sys.argv) == 3, "Llamar como python benchmark.py N prec dev, donde N es un entero y prec es 32 (float) o 64 (double)"
     print(f" Devices: {jax.devices()}")
     N, prec = [int(arg) for arg in sys.argv[1:]]
-    repetitions = 10 
+    repetitions = 10
     data = np.random.randn(N, 2)
     if prec == 64:
         jax.config.update("jax_enable_x64", True)
     else:
-        data = np.random.randn(N, 2).astype('float32')
+        data = data.astype('float32')
     data_jax = jnp.array(data)
-    print(f"What type is data_jax: {data_jax.dtype}")
-    print(f"Where is data_jax: {data_jax.device_buffer.device()}")
+    print(f"What type is data_jax?: {data_jax.dtype}")
+    print(f"Where is data_jax?: {data_jax.device_buffer.device()}")
     result_np = distancia_pares_np(data)
     # distancia_pares_jnp = jax.jit(distancia_pares_jnp)
     result_jnp = distancia_pares_jnp(data_jax)
