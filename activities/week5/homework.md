@@ -40,6 +40,7 @@ Finalmente instale JAX con:
 
     pip install --timeout 60 --upgrade "jax[cuda12_local]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
+Referencia: https://github.com/google/jax#installation
 
 ## Actividad:
 
