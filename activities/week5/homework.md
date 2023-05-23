@@ -24,7 +24,7 @@ Para trabajar con JAX en CPU en su computador local, prepare el siguiente ambien
 
 Para trabajar con JAX en GPU utilizaremos Patagon. Prepare un contenedor con:
 
-    srun -p cpu -v --container-name=jax --container-image=nvcr.io/nvidia/cuda:12.1.1-devel-ubuntu22.04 --container-remap-root --pty bash
+    srun -p cpu -v --container-name=jax --container-image=nvcr.io/nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04 --container-remap-root --pty bash
 
 Una vez dentro del  contenedor actualice los repos e instale python3
 
@@ -38,7 +38,7 @@ Vuelva a entrar en su contenedor pero como usuario regular
 
 Finalmente instale JAX con:
 
-    pip install --timeout 60 --upgrade "jax[cuda12_pip]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+    pip install --timeout 60 --upgrade "jax[cuda12_local]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 
 
 ## Actividad:
