@@ -16,7 +16,13 @@ Revisar el siguiente material junto al profesor:
 
 y los ejemplos de este carpeta.
 
-Para trabajar en GPU utilizaremos Patagon. Prepare un contenedor con:
+Para trabajar con JAX en CPU en su computador local, prepare el siguiente ambiente:
+
+    conda create -n jax python=3.10 pip
+    conda activate jax
+    pip install --upgrade "jax[cpu]"
+
+Para trabajar con JAX en GPU utilizaremos Patagon. Prepare un contenedor con:
 
     srun -p cpu -v --container-name=jax --container-image=nvcr.io/nvidia/cuda:12.1.1-devel-ubuntu22.04 --container-remap-root --pty bash
 
