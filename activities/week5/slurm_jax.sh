@@ -5,8 +5,8 @@
 #SBATCH --gres=gpu:A100:1
 
 # Identification
-#SBATCH -J Jax-demo-%j
-#SBATCH -o Jax-demo-%j.log
+#SBATCH -J JAX-bench-%j
+#SBATCH -o JAX-bench-%j.log
 
 pwd
 date
