@@ -1,50 +1,25 @@
-# Actividades 16 de mayo
+# Actividades 30 de mayo
 
 ## Resultados de aprendizaje
 
 El estudiante es capaz de:
-- Explicar que es y para qué sirve C-Extensions for Python (cython) 
-- Escribir y compilar rutinas en cython que procesan ndarrays de NumPy
-- Acceder a funciones de lenguaje C desde Python
+- Entender que es el GIL en Python
+- Paralelizar una rútina con cython y OpenMP
 
 ## Antes de la actividad
 
 Revisar el siguiente material junto al profesor:
 
-- https://phuijse.github.io/PythonBook/contents/hpc/cython.html
+- https://phuijse.github.io/PythonBook/contents/hpc/parallel.html
 
 y los ejemplos de este carpeta.
 
+Utilice el ambiente de conda con cython creado en la semana 4. Puede compilar el ejemplo con
 
-Instale en su ambiente la librería cython y los compiladores de C o cree un ambiente nuevo:
-
-    conda create -n cython2 python=3.9 numpy gcc_linux-64 cython
-
-Luego active su ambiente.
-
-Puede transpilar de cython a c con:
-
-    cython -3 mi_codigo.pyx
-
-Opcionalmente puede usar el flag `-a` para generar un reporte html con la cantidad de llamados a la API de Python. 
-
-Luego compile el código generado con:
-
-    $CONDA_PREFIX/bin/x86_64-conda-linux-gnu-gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -o my_lib.so mi_codigo.c -I $CONDA_PREFIX/include/python3.9/
-
-
-Lo anterior crea una librería dinámica que puede llamarse desde Python como:
-
-    import my_lib
-
-o 
-
-    from my_lab import mi_funcion
-
-Opcionalmente puede hacer los pasos de transpilación y compilación al mismo tiempo con el comando `cithonize`.
+    make
 
 
 
 ## Actividad:
 
-Utilizando como base la implementación en lenguaje Python ingenua del fractal de Julia (semana 2) implemente una versión cythonizada con las consideraciones vistas en clase. Compare los resultados con la versión vectorizada de la semana 3. Haga una curva de speed up entre la implementación en cython y la vectorizada con numpy en función de `N`. 
+Utilizando como base la implementación en Cython del fractal de Julia (semana 4) implemente una versión paralela con openmp según las consideraciones vistas en clase. Haga una curva de speed up entre la implementación en cython original y paralela en función de `N` y el número de nucleos (considere 2, 4 y 8). Utilice patagon en la cola de CPU. 
