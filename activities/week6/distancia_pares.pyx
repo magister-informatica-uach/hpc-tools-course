@@ -20,13 +20,12 @@ def distancia_pares_parallel(TIPO_t [:, ::1] data, int n_jobs=4):
     dist = np.zeros(shape=(N, N), dtype=TIPO)
     cdef TIPO_t [:, ::1] dist_view = dist
     cdef Py_ssize_t i, j, k
-    with nogil:
-        for i in range(N):
-            for j in prange(i+1, N, num_threads=n_jobs):
-                for k in range(M):
-                    dist_view[i, j] += (data[i, k] - data[j, k])**2
-                dist_view[i, j] = sqrt(dist_view[i, j])
-                dist_view[j, i] = dist_view[i, j]
+    for i in prange(N, num_threads=n_jobs, nogil=True, schedule='static', chunksize=100):
+        for j in range(i+1, N):
+            for k in range(M):
+                dist_view[i, j] += (data[i, k] - data[j, k])**2
+            dist_view[i, j] = sqrt(dist_view[i, j])
+            dist_view[j, i] = dist_view[i, j]
     return dist
 
 
