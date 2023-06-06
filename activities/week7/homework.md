@@ -42,3 +42,12 @@ Para detener el cluster
 
 ## Actividad:
 
+
+## Referencias y links:
+
+- Conceptos clave de Ray: https://docs.ray.io/en/latest/ray-core/key-concepts.html
+- Ejemplo de montecarlo con Ray: https://docs.ray.io/en/latest/ray-core/examples/monte_carlo_pi.html#monte-carlo-pi
+- Configurando Ray: https://docs.ray.io/en/latest/ray-core/configure.html
+- Proporcionar ambiente para tareas en Ray: https://docs.ray.io/en/latest/ray-core/handling-dependencies.html#runtime-environments
+- Ray en la nube: https://docs.ray.io/en/latest/cluster/getting-started.html
+- Alternativas a Ray: Dask y MPI: https://aaltoscicomp.github.io/python-for-scicomp/parallel/
