@@ -7,7 +7,7 @@ El estudiante es capaz de:
 - Crear clusters de Ray en Google Cloud Engine
 - Coordinar multiples procesos asíncronos en cluster Ray en la nube
 
-## Actividad
+## Actividad 1
 
 Cree un ambiente de conda para utilizar los servicios de Google Cloud:
 
@@ -16,7 +16,6 @@ Cree un ambiente de conda para utilizar los servicios de Google Cloud:
 Luego instale ray:
 
     pip install ray[default]
-
 
 Ahora cree un proyecto utilizando [la consola web de Google Cloud](https://console.cloud.google.com). Tome nota de la id del proyecto.
 
@@ -62,11 +61,16 @@ Observe el output impreso. Puede obtener acceso al dashboard con
 
 Y luego abrir su navegador en: http://127.0.0.1:8265
 
+Si bien en este caso no es necesario, se pueden descargar archivos desde el nodo head con el comando:
+
+    ray rsync_down gce-minimal.yaml ruta_nube .
+
 Finalmente puede detener el cluster con:
 
     ray down -v -y gce-minimal.yaml
 
 Nota: Verifique que las máquinas virtuales se hayan destruido correctamente en la consola de Google. Si siguen ahí, puede borrarlas manualmente o intentar ejecutar nuevamente el comando anterior.
+
 
 ## Referencias y links:
 
