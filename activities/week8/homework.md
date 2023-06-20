@@ -18,16 +18,9 @@ Luego instale ray:
     pip install ray[default]
 
 
-Ahora cree un proyecto utilizando [la consola web de Google Cloud](https://console.cloud.google.com). Tenga en consideración la id del proyecto.
+Ahora cree un proyecto utilizando [la consola web de Google Cloud](https://console.cloud.google.com). Tome nota de la id del proyecto.
 
-Los archivo `yaml` en este directorio tienen la configuración configuración para el cluster que lanzaremos en GCE. Vaya a la línea 42 del archivo de configuración (full) y cambie le valor `null` por la id de su proyecto en GCE. Otras líneas importantes son:
-
-- 6: Número máximo de workers
-- 18: Imagen docker que se utilizará
-- 39-40-41: Tipo de servicio y región
-- 56: Todo lo relacionado al nodo maestro (head)
-- 86: Todo lo relacionado a los nodos trabajadores (workers)
-- 173: Comandos a ejecutar en la creación de los nodos trabajadores, por ejemplo instalación de librerías
+Los archivo `yaml` en este directorio tienen la configuración configuración para el cluster que lanzaremos en GCE. 
 
 Ahora es necesario configurar sus credenciales de GCE mediante ADC (application default credentials) con:
 
@@ -41,26 +34,54 @@ Luego active su proyecto para cargos con
 
 **Nota:** Si no lo ha hecho es necesario [activar la API de su proyecto](https://console.cloud.google.com/apis/api/iam.googleapis.com/). En particular es necesario activar la [API del Compute Engine](https://console.cloud.google.com/apis/library/compute.googleapis.com). Este paso puede tomar algunos minutos.
 
-Inicie el cluster con 
+Revise el script de python en este directorio y luego ejecutelo con:
 
-    ray up -y minimal.yaml
+    python ray-cluster-hello-world
 
-Este proceso descargará las imágenes, lo cual puede demorar varios minutos.
+Lo anterior creará un cluster de ray local. A continuación veremos como realizar lo anterior con un cluster en la nube.
 
-Luego conéctese al cluster con:
+Primero edite el archivo de configuración `gce-minimal.yaml` con la id de su proyecto.
 
-    ray attach minimal.yaml
+Ahora inicie el cluster con 
 
-Los comandos que lancemos a continuación serán ejecutados en el nodo head. Revise el script de python en este directorio y luego ejecutelo con:
+    ray up -y gce-minimal.yaml
 
-    python ray-cluster-hello-world.py
+Este proceso descargará las imágenes, lo cual puede demorar varios minutos la primera vez. Cuando el proceso termine diríjase a la consola web para observar las máquina virtual creada (inicialmente sólo la del nodo head).
 
-Observe el output impreso y finalmente detenga el cluster con:
+Para enviarle la rutina al nodo head puede utiliza
 
-    ray down -y minimal.yaml
+    ray rsync_up gce-minimal.yaml ray-cluster-hello-world.py .
+
+Luego lance el script con:
+
+    ray exec gce-minimal.yaml 'python ray-cluster-hello-world.py'
+
+Observe el output impreso. Puede obtener acceso al dashboard con
+
+    ray dashboard gce-minimal.yaml
+
+Y luego abrir su navegador en: http://127.0.0.1:8265
+
+Finalmente puede detener el cluster con:
+
+    ray down -v -y gce-minimal.yaml
+
+Nota: Verifique que las máquinas virtuales se hayan destruido correctamente en la consola de Google. Si siguen ahí, puede borrarlas manualmente o intentar ejecutar nuevamente el comando anterior.
 
 ## Referencias y links:
 
-- https://cloud.google.com/docs/authentication/client-libraries#python
+- https://docs.ray.io/en/latest/cluster/vms/references/ray-cluster-cli.html#cluster-commands
 - https://docs.ray.io/en/latest/cluster/getting-started.html
 - https://docs.ray.io/en/latest/cluster/kubernetes/user-guides/k8s-cluster-setup.html
+
+El archivo `gce-full.yaml` expone más opciones para configurar su cluster, las líneas más importantes son:
+
+- 6: Número máximo de workers
+- 18: Imagen docker que se utilizará
+- 39-40-41: Tipo de servicio y región
+- 42: Nombre del proyecto
+- 56: Todo lo relacionado al nodo maestro (head)
+- 86: Todo lo relacionado a los nodos trabajadores (workers)
+- 173: Comandos a ejecutar en la creación de los nodos trabajadores, por ejemplo instalación de librerías
+
+
