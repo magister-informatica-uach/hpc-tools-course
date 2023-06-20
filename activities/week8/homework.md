@@ -7,7 +7,7 @@ El estudiante es capaz de:
 - Crear clusters de Ray en Google Cloud Engine
 - Coordinar multiples procesos asíncronos en cluster Ray en la nube
 
-## Actividad 1
+## Actividad formativa
 
 Cree un ambiente de conda para utilizar los servicios de Google Cloud:
 
@@ -35,7 +35,7 @@ Luego active su proyecto para cargos con
 
 Revise el script de python en este directorio y luego ejecutelo con:
 
-    python ray-cluster-hello-world
+    python ray_cluster_hello_world.py
 
 Lo anterior creará un cluster de ray local. A continuación veremos como realizar lo anterior con un cluster en la nube.
 
@@ -49,11 +49,11 @@ Este proceso descargará las imágenes, lo cual puede demorar varios minutos la 
 
 Para enviarle la rutina al nodo head puede utiliza
 
-    ray rsync_up gce-minimal.yaml ray-cluster-hello-world.py .
+    ray rsync_up gce-minimal.yaml ray_cluster_hello_world.py .
 
 Luego lance el script con:
 
-    ray exec gce-minimal.yaml 'python ray-cluster-hello-world.py'
+    ray exec gce-minimal.yaml 'python ray_cluster_hello_world.py'
 
 Observe el output impreso. Puede obtener acceso al dashboard con
 
@@ -74,6 +74,11 @@ Nota: Verifique que las máquinas virtuales se hayan destruido correctamente en 
 Finalmente puede deslogear los servicios de gcloud con:
 
     gcloud auth application-default revoke
+
+## Actividad sumativa
+
+Repita el procedimiento anterior para lanzar en un cluster ray en la nube el script `example_ray_local.py` de la semana 7.
+
 
 ## Referencias y links:
 
