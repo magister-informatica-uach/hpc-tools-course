@@ -71,11 +71,14 @@ Finalmente puede detener el cluster con:
 
 Nota: Verifique que las máquinas virtuales se hayan destruido correctamente en la consola de Google. Si siguen ahí, puede borrarlas manualmente o intentar ejecutar nuevamente el comando anterior.
 
+Finalmente puede deslogear los servicios de gcloud con:
+
+    gcloud auth application-default revoke
 
 ## Referencias y links:
 
+- https://docs.ray.io/en/latest/cluster/vms/getting-started.html
 - https://docs.ray.io/en/latest/cluster/vms/references/ray-cluster-cli.html#cluster-commands
-- https://docs.ray.io/en/latest/cluster/getting-started.html
 - https://docs.ray.io/en/latest/cluster/kubernetes/user-guides/k8s-cluster-setup.html
 
 El archivo `gce-full.yaml` expone más opciones para configurar su cluster, las líneas más importantes son:
