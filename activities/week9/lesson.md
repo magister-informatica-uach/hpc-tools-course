@@ -18,7 +18,7 @@ Se utilizará el mismo ambiente de la actividad anterior con GCE. Instalamos la 
 
 El componente kubectl se instalará en una ruta del estilo `~/.conda/envs/gce/share/google-cloud-sdk-435.0.1-0/bin`. Se recomienda añadirla a su variable de entorno `PATH` para poder llamarla directamente. Verifique que la variable de entorno funciona ejecutando:
 
-    kubectl version --short
+    kubectl version --output=yaml
 
 La instalación de kubectl debería instalar el complemento de autenticación de GKE, compruebe con:
 
@@ -54,7 +54,7 @@ Cabe destacar que se puede tener más de un cluster. Para verificar cual es el c
 
 A continuación levantaremos el operador de Kubernetes provisto por Ray: KubeRay. Un operador es una extensión de software para Kubernetes que le permite usar recursos personalizados. En este caso particular KubeRay ofrece tres recursos: RayCluster, RayJobs y RayService.
 
-Utilice helm para instalar KubeRay en su cluster:
+Para instalar KubeRay en su cluster:
 
     kubectl create -k "github.com/ray-project/kuberay/ray-operator/config/default?ref=v0.5.0&timeout=90s"
 
@@ -95,7 +95,7 @@ Ahora ya está listo para enviar trabajos con Ray. Envíe un trabajo de ejemplo 
 
 También se puede evitar proveer la dirección declarando la variable de ambiente
 
-    export RAY_ADRESS="http://127.0.0.1:8265"
+    export RAY_ADDRESS="http://127.0.0.1:8265"
 
 Visualice el resultado en el dashboard.
 
