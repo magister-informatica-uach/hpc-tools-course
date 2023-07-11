@@ -1,4 +1,4 @@
-# Actividades 18 de abril
+# Trabajando con un ambiente UNIX remoto
 
 ## Resultados de aprendizaje
 
@@ -7,7 +7,7 @@
 - Usar editores e IDEs para programar remotamente
 - Lanzar tareas en supercomputador Patagon
 
-## Actividades
+## Actividad en clase
 
 Clone este repositorio en su computador o al menos el contenido de la carpeta `activities/week1`
 
@@ -40,7 +40,7 @@ Nota: Podría ser necesario darle permiso de ejecución al *script*. Utilice `ch
 
 ### Patagon y SLURM
 
-- Configure la autenticación para poder descargar contenedores desde NGC y DockerHub en Patagon. Referencia: https://patagon.uach.cl/patagon/tutoriales/autentificacion-contenedores
+- Configure la autenticación para poder descargar contenedores desde [NGC y DockerHub en Patagon](https://patagon.uach.cl/patagon/tutoriales/autentificacion-contenedores)
 - Cree un contenedor llamado *arch* con la imagen `archlinux` de Docker Hub. Ingrese al contenedor como usuario root e instale python con `pacman -S python`. Luego salga del contenedor. Referencia: https://patagon.uach.cl/patagon/tutoriales/administracion-contenedores
 - Implemente un *script* (job submission file) de SLURM que ejecute el script `run.py`. Utilice la partición `cpu` y el contenedor que acaba de crear. Referencia: https://patagon.uach.cl/patagon/tutoriales/how-to-launch-slurm-jobs
 - Lance el trabajo y verifique el resultado. Envié el log de resultado por discord a su profesor.

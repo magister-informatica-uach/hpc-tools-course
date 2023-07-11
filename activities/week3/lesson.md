@@ -1,4 +1,4 @@
-# Actividad 9 de Mayo
+# Alto rendimiento en Python y vectorización con NumPy
 
 ## Resultados de aprendizaje
 
@@ -6,7 +6,7 @@
 - Aprender buenas prácticas de programación para acelerar rutinas en Python
 - Vectorizar rutinas matemáticas con la librería NumPy
 
-## Conceptos básicos
+## Actividad en clases
 
 Revisar el siguiente material junto al profesor:
 
@@ -28,7 +28,7 @@ Para comprobar su versión y las librerías de bajo nivel contra las que está c
 - Configurando la [cantidad de núcleos en NumPy](https://superfastpython.com/numpy-number-blas-threads/)
 - Es posible [cambiar el backend de bajo nivel](https://conda-forge.org/docs/maintainer/knowledge_base.html#switching-blas-implementation)
 
-## Actividad: Vectorizar el fractal de Julia
+## Actividad personal: Vectorizar el fractal de Julia
 
 Escriba una versión vectorizada de la rutina que genera el fractal de Julia utilizada en la semana 2. 
 

@@ -1,4 +1,4 @@
-# Actividades 2 de mayo
+# Herramientas de perfilado
 
 ## Resultados de aprendizaje
 
@@ -7,7 +7,7 @@
 - Aplicar herramientas para medir tiempo de cómputo de una rutina en C
 
 
-### Conceptos básicos
+## Actividad en clase
 
 Revisar el siguiente material junto al profesor:
 

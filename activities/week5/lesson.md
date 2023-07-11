@@ -1,4 +1,4 @@
-# Actividades 23 de mayo
+# Compilación JIT y cómputo en GPU con JAX
 
 ## Resultados de aprendizaje
 
@@ -8,7 +8,7 @@ El estudiante es capaz de:
 - Escribir rutinas en JAX que procesan ndarrays
 - Procesar con JAX tanto CPU como en GPU
 
-## Antes de la actividad
+## Actividad en clase
 
 Revisar el siguiente material junto al profesor:
 
@@ -45,6 +45,6 @@ Referencias:
 - https://github.com/google/jax#installation
 - https://jax.readthedocs.io/en/latest/
 
-## Actividad:
+## Actividad personal:
 
 Utilizando como base la implementación en lenguaje Python vectorizada (numpy) fractal de Julia (semana 3) implemente una versión en JAX con las transformaciones vistas en clase. Compare los resultados con la versión vectorizada en numpy. Haga una curva de speed up entre la implementación en numpy, JAX en CPU, JAX con JIT en CPU, JAX en GPU y JAX con JIT en GPU en función de `N`. 

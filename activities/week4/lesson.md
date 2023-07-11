@@ -1,4 +1,4 @@
-# Actividades 16 de mayo
+# Conectar Python con C utilizando cython
 
 ## Resultados de aprendizaje
 
@@ -7,14 +7,13 @@ El estudiante es capaz de:
 - Escribir y compilar rutinas en cython que procesan ndarrays de NumPy
 - Acceder a funciones de lenguaje C desde Python
 
-## Antes de la actividad
+## Actividad en clase
 
 Revisar el siguiente material junto al profesor:
 
 - https://phuijse.github.io/PythonBook/contents/hpc/cython.html
 
 y los ejemplos de este carpeta.
-
 
 Instale en su ambiente la librería cython y los compiladores de C o cree un ambiente nuevo:
 
@@ -43,8 +42,6 @@ o
 
 Opcionalmente puede hacer los pasos de transpilación y compilación al mismo tiempo con el comando `cithonize`.
 
-
-
-## Actividad:
+## Actividad personal:
 
 Utilizando como base la implementación en lenguaje Python ingenua del fractal de Julia (semana 2) implemente una versión cythonizada con las consideraciones vistas en clase. Compare los resultados con la versión vectorizada de la semana 3. Haga una curva de speed up entre la implementación en cython y la vectorizada con numpy en función de `N`. 

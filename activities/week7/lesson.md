@@ -1,4 +1,4 @@
-# Actividades 6 de junio
+# Computo multi-proceso con joblib y Ray
 
 ## Resultados de aprendizaje
 
@@ -8,7 +8,7 @@ El estudiante es capaz de:
 - Coordinar multiples procesos en Python con joblib
 - Coordinar multiples procesos asíncronos con Ray
 
-## Antes de la actividad
+## Actividad en clase
 
 Revisar la documentación de JobLib y Ray y los ejemplos de este carpeta.
 
@@ -38,12 +38,10 @@ Para detener el cluster
 
     ray stop
 
+## Actividad personal
 
 
-## Actividad:
-
-
-## Referencias y links:
+## Referencias y links
 
 - Conceptos clave de Ray: https://docs.ray.io/en/latest/ray-core/key-concepts.html
 - Ejemplo de montecarlo con Ray: https://docs.ray.io/en/latest/ray-core/examples/monte_carlo_pi.html#monte-carlo-pi

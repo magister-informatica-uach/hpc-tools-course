@@ -1,4 +1,4 @@
-# Actividades 20 de junio
+# Cómputo distribuido con Ray en Google GCE
 
 ## Resultados de aprendizaje
 
@@ -7,7 +7,7 @@ El estudiante es capaz de:
 - Crear clusters de Ray en Google Cloud Engine
 - Coordinar multiples procesos asíncronos en cluster Ray en la nube
 
-## Actividad formativa
+## Actividad en clases
 
 Cree un ambiente de conda para utilizar los servicios de Google Cloud:
 
@@ -75,7 +75,7 @@ Finalmente puede deslogear los servicios de gcloud con:
 
     gcloud auth application-default revoke
 
-## Actividad sumativa
+## Actividad personal
 
 Repita el procedimiento anterior para lanzar en un cluster ray en la nube el script `example_ray_local.py` de la semana 7.
 

@@ -1,4 +1,4 @@
-# Actividades 11 de julio
+# Cómputo distribudio con Ray y kubernetes
 
 ## Resultados de aprendizaje
 
